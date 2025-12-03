@@ -5,11 +5,15 @@ from typing import Dict
 
 DEFAULT_PROMPT = dedent(
     """
-    You are a meticulous math tutor. Solve the following problem step by step and
-    clearly mark the final answer on a new line starting with "Answer:".
+    You are a meticulous math tutor. Solve the problem step by step.
+    At the end, output the final numeric answer in the format:
+
+    #### <number>
 
     Question:
     {question}
+
+    Answer:
     """
 ).strip()
 
