@@ -20,7 +20,14 @@ class DatasetConfig:
 
 # Built-in presets for convenience.
 DATASET_PRESETS: Dict[str, DatasetConfig] = {
-    "gsm8k": DatasetConfig(name="gsm8k", split="test", question_field="question", answer_field="answer"),
+    # `gsm8k` on HF requires a config (`main`/`socratic`), so default to `main`.
+    "gsm8k": DatasetConfig(
+        name="gsm8k",
+        subset="main",
+        split="test",
+        question_field="question",
+        answer_field="answer",
+    ),
     # Add other reasoning sets here.
 }
 
@@ -47,3 +54,4 @@ def load_reasoning_dataset(cfg: DatasetConfig, streaming: bool = False, cache_di
         cache_dir=cache_dir,
     )
     return data
+
